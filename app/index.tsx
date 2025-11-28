@@ -1,15 +1,14 @@
+import { Link } from "expo-router";
 import { Text, View } from "react-native";
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Movie App.</Text>
+    <View className="flex-1 justify-center items-center">
+      <Text className="text-4xl text-primary font-bold">MovieBinge</Text>
+      <Link href={'/movies/ironman'}>
+        <Text className="text-4xl text-primary font-bold">Movie Details</Text>
+      </Link>
+
     </View>
   );
 }
