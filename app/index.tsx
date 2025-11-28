@@ -9,7 +9,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>My First android app. Yes its working</Text>
+      <Text>Movie App.</Text>
     </View>
   );
 }
