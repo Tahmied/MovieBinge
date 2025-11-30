@@ -1,3 +1,4 @@
+import MovieCard from "@/components/MovieCard";
 import SearchBar from "@/components/SearchBar";
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
@@ -30,17 +31,24 @@ export default function Index() {
             moviesError ? (
               <Text>Error : {moviesError?.message}</Text>
             ) : (
-              <View className="flex-1 mt-5">
+              <View className="mt-5">
                 <SearchBar onPress={() => router.push('/search')} placeholder="Search for a movie" />
                 <>
                   <Text className="text-lg text-white font-bold mt-5 mb-3">Latest Movies</Text>
 
                   <FlatList
-                    data={movies}
-                    renderItem={({ item }) => (
-                      <Text className="text-white text-sm">{item.title}</Text>
-                    )}
+                    data={movies?.results}
+                    renderItem={({ item }) => <MovieCard {...item} />}
                     scrollEnabled={false}
+                    keyExtractor={(item) => item.id.toString()}
+                    numColumns={3}
+                    columnWrapperStyle={{
+                      justifyContent: 'flex-start',
+                      gap: 20,
+                      paddingRight: 4,
+                      marginBottom: 10
+                    }}
+                    className="mt-2 pb-32"
                   />
 
                 </>
